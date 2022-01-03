@@ -22,10 +22,12 @@ let currencyRatio = {
 let fromCurrency = 'USD';
 let toCurrency = 'USD';
 
+
 document.querySelectorAll("#from-currency-list a").forEach(menu => 
     menu.addEventListener("click", function(){
         document.getElementById("from-btn").textContent = this.textContent;
         fromCurrency = this.textContent;
+        convert();
     })
 );
 
@@ -33,7 +35,23 @@ document.querySelectorAll("#to-currency-list a").forEach(menu =>
     menu.addEventListener("click", function(){
         document.getElementById("to-btn").textContent = this.textContent;
         toCurrency = this.textContent;
-        console.log(toCurrency)
+        convert();  
     })
 );
 
+
+
+function convert() {
+    let amount = document.getElementById("from-input").value;
+    let convertedAmount = amount * currencyRatio[fromCurrency][toCurrency];
+    document.getElementById("to-input").value = convertedAmount;
+}
+
+function reverseConvert() {
+    let amount = document.getElementById("to-input").value;
+    let convertedAmount = amount * currencyRatio[toCurrency][fromCurrency];
+    document.getElementById("from-input").value = convertedAmount;
+}
+
+document.getElementById("from-input").addEventListener("keyup", convert);
+document.getElementById("to-input").addEventListener("keyup", reverseConvert);
