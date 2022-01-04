@@ -12,13 +12,18 @@
       <div class="dropdown">
         <button class="dropbtn" id="from-btn">USD</button>
         <div class="dropdown-content" id="from-currency-list">
-          <a href="#">USD</a>
-          <a href="#">KRW</a>
-          <a href="#">MXN</a>
+          <a id="USD">USD</a>
+          <a id="KRW">KRW</a>
+          <a id="MXN">MXN</a>
         </div>
       </div>
       <div class="input-area">
-        <input type="number" id="from-input" />
+        <input
+          type="text"
+          id="from-input"
+          maxlength="15"
+          placeholder="금액을 입력하세요"
+        />
         <div id="from-result">달러</div>
       </div>
     </div>
@@ -27,16 +32,21 @@
     </div>
     <div class="exchange-box">
       <div class="dropdown">
-        <button class="dropbtn" id="to-btn">USD</button>
+        <button class="dropbtn" id="to-btn">KRW</button>
         <div class="dropdown-content" id="to-currency-list">
-          <a href="#">USD</a>
-          <a href="#">KRW</a>
-          <a href="#">MXN</a>
+          <a id="USD">USD</a>
+          <a id="KRW">KRW</a>
+          <a id="MXN">MXN</a>
         </div>
       </div>
       <div class="input-area">
-        <input type="number" id="to-input" />
-        <div id="to-result">달러</div>
+        <input
+          type="text"
+          id="to-input"
+          maxlength="15"
+          placeholder="금액을 입력하세요"
+        />
+        <div id="to-result">원</div>
       </div>
     </div>
 
