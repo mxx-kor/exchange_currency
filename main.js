@@ -1,57 +1,74 @@
 let currencyRatio = {
     USD:{
-        KRW: 1184.36,
+        KRW: 1192.90,
         USD: 1,
         MXN: 20.50,
-        unit: "달러"
+        unit: "달러",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/2560px-Flag_of_Vietnam.svg.png"
     },
     KRW:{
         KRW: 1,
         USD: 0.00084,
         MXN: 0.017,
-        unit: "원"
+        unit: "원",
+        img: "https://cdn-icons-png.flaticon.com/512/555/555526.png"
     },
     MXN:{
         KRW: 58.00,
         USD: 0.049,
         MXN: 1,
-        unit: "페소"
+        unit: "페소",
+        img: "https://cdn.countryflags.com/thumbs/south-korea/flag-400.png"
     }
 };
 
 let fromCurrency = 'USD';
-let toCurrency = 'USD';
+let toCurrency = 'KRW';
+const fromResult = document.getElementById('from-result')
+const toResult = document.getElementById('to-result')
 
-
-document.querySelectorAll("#from-currency-list a").forEach(menu => 
-    menu.addEventListener("click", function(){
+document.querySelectorAll("#from-currency-list a").forEach(item => 
+    item.addEventListener("click", function(){
         document.getElementById("from-btn").textContent = this.textContent;
         fromCurrency = this.textContent;
+        fromResult.textContent = currencyRatio[fromCurrency].unit;
         convert();
     })
 );
 
-document.querySelectorAll("#to-currency-list a").forEach(menu => 
-    menu.addEventListener("click", function(){
+document.querySelectorAll("#to-currency-list a").forEach(item => 
+    item.addEventListener("click", function(){
         document.getElementById("to-btn").textContent = this.textContent;
         toCurrency = this.textContent;
+        toResult.textContent = currencyRatio[toCurrency].unit;
         convert();  
     })
 );
 
 
+function threeNumsComma(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 function convert() {
     let amount = document.getElementById("from-input").value;
     let convertedAmount = amount * currencyRatio[fromCurrency][toCurrency];
-    document.getElementById("to-input").value = convertedAmount;
+    document.getElementById("to-input").value = threeNumsComma(convertedAmount.toFixed(1));  
+    fromResult.textContent = `${threeNumsComma(amount)} ${currencyRatio[fromCurrency].unit}`
+    toResult.textContent = `${threeNumsComma(convertedAmount.toFixed(1))} ${currencyRatio[toCurrency].unit}`
 }
 
 function reverseConvert() {
     let amount = document.getElementById("to-input").value;
     let convertedAmount = amount * currencyRatio[toCurrency][fromCurrency];
-    document.getElementById("from-input").value = convertedAmount;
+    document.getElementById("from-input").value = threeNumsComma(convertedAmount.toFixed(1));
+    toResult.textContent = `${threeNumsComma(amount)} ${currencyRatio[toCurrency].unit}`
+    fromResult.textContent = `${threeNumsComma(convertedAmount.toFixed(1))} ${currencyRatio[fromCurrency].unit}`
 }
 
 document.getElementById("from-input").addEventListener("keyup", convert);
 document.getElementById("to-input").addEventListener("keyup", reverseConvert);
+
+// 다음 할 내용
+// 국기 넣어서 가독성 높이기
+// 색 이쁘게 꾸미기
