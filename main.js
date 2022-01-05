@@ -4,21 +4,21 @@ let currencyRatio = {
         USD: 1,
         MXN: 20.50,
         unit: "달러",
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/2560px-Flag_of_Vietnam.svg.png"
+        img: "https://cdn-icons-png.flaticon.com/512/555/555526.png"
     },
     KRW:{
         KRW: 1,
         USD: 0.00084,
         MXN: 0.017,
         unit: "원",
-        img: "https://cdn-icons-png.flaticon.com/512/555/555526.png"
+        img: "https://cdn.countryflags.com/thumbs/south-korea/flag-400.png"
     },
     MXN:{
         KRW: 58.00,
         USD: 0.049,
         MXN: 1,
         unit: "페소",
-        img: "https://cdn.countryflags.com/thumbs/south-korea/flag-400.png"
+        img: "https://icons.iconarchive.com/icons/wikipedia/flags/512/MX-Mexico-Flag-icon.png"
     }
 };
 
@@ -27,6 +27,8 @@ let toCurrency = 'KRW';
 const fromResult = document.getElementById('from-result')
 const toResult = document.getElementById('to-result')
 
+
+// 유닛 인자를 받아오질 못하는 오류 발생
 document.querySelectorAll("#from-currency-list a").forEach(item => 
     item.addEventListener("click", function(){
         document.getElementById("from-btn").textContent = this.textContent;
@@ -68,7 +70,3 @@ function reverseConvert() {
 
 document.getElementById("from-input").addEventListener("keyup", convert);
 document.getElementById("to-input").addEventListener("keyup", reverseConvert);
-
-// 다음 할 내용
-// 국기 넣어서 가독성 높이기
-// 색 이쁘게 꾸미기
