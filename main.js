@@ -27,12 +27,10 @@ let toCurrency = 'KRW';
 const fromResult = document.getElementById('from-result')
 const toResult = document.getElementById('to-result')
 
-
-// 유닛 인자를 받아오질 못하는 오류 발생
 document.querySelectorAll("#from-currency-list a").forEach(item => 
     item.addEventListener("click", function(){
-        document.getElementById("from-btn").textContent = this.textContent;
-        fromCurrency = this.textContent;
+        fromCurrency = this.id;
+        document.getElementById('from-btn').innerHTML = `<img src="${currencyRatio[fromCurrency].img}"/> ${fromCurrency}`;
         fromResult.textContent = currencyRatio[fromCurrency].unit;
         convert();
     })
@@ -40,8 +38,8 @@ document.querySelectorAll("#from-currency-list a").forEach(item =>
 
 document.querySelectorAll("#to-currency-list a").forEach(item => 
     item.addEventListener("click", function(){
-        document.getElementById("to-btn").textContent = this.textContent;
-        toCurrency = this.textContent;
+        toCurrency = this.id;
+        document.getElementById('to-btn').innerHTML = `<img src="${currencyRatio[toCurrency].img}"/> ${toCurrency}`;
         toResult.textContent = currencyRatio[toCurrency].unit;
         convert();  
     })
