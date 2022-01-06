@@ -101,3 +101,32 @@ img {
   font-size: 40px;
   font-weight: 600px;
 }
+
+@media screen and (max-width: 650px) {
+  html,
+  body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .exchange-box {
+    width: 450px;
+    height: 150px;
+  }
+  .dropdown-content {
+    font-size: 15px;
+  }
+  .input-area input {
+    font-size: 20px;
+  }
+  #from-result,
+  #to-result {
+    font-size: 30px;
+  }
+  #equal {
+    font-size: 50px;
+  }
+}
