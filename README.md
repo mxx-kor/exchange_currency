@@ -6,6 +6,14 @@
 
 > 객체를 활용하고 DOM요소 미디어 쿼리를 공부하기 위해 개인적으로 여러가지 소스들을 활용하여 환전 어플리케이션을 구축하였습니다.
 
+### Demo:https://mxx-kor.github.io/exchange_currency/
+---
+
+## 사용 기술
+
+- HTML/CSS
+- Vanilla JS
+
 ---
 
 ## 기능 설명
